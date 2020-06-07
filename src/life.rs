@@ -61,7 +61,9 @@ impl LifeBoard {
         let thingy_width = 3;
         let thingy_height = 3;
 
-        if top_left.c + thingy_width >= self.dimensions.w || top_left.r + thingy_height >= self.dimensions.h {
+        if top_left.c + thingy_width >= self.dimensions.w
+            || top_left.r + thingy_height >= self.dimensions.h
+        {
             return None;
         }
 
@@ -82,7 +84,9 @@ impl LifeBoard {
     fn insert_glider(&mut self, top_left: CellLocation) -> Option<CellLocation> {
         let glider_width = 3;
         let glider_height = 3;
-        if top_left.c + glider_width >= self.dimensions.w || top_left.r + glider_height >= self.dimensions.h {
+        if top_left.c + glider_width >= self.dimensions.w
+            || top_left.r + glider_height >= self.dimensions.h
+        {
             return None;
         }
 
@@ -133,7 +137,10 @@ impl LifeBoard {
             self.get_relative_cell(c, Direction::Right),
         ];
         let somes: Vec<&Cell> = cells.into_iter().filter_map(|n| n).collect();
-        let alives: Vec<&Cell> = somes.into_iter().filter(|n| n.state == CellState::Alive).collect();
+        let alives: Vec<&Cell> = somes
+            .into_iter()
+            .filter(|n| n.state == CellState::Alive)
+            .collect();
         alives.len() as u8
     }
 
