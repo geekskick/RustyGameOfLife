@@ -118,7 +118,7 @@ fn main() {
                 .validator(|val| check_limits(&val, 1, 20)),
         )
         .arg(
-            Arg::with_name("cell edge legth")
+            Arg::with_name("cell edge length")
                 .takes_value(true)
                 .long("edge")
                 .help("How many pixels each cell edge is")
