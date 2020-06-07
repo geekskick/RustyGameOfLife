@@ -115,7 +115,7 @@ fn main() {
                 .takes_value(true)
                 .long("history")
                 .help("How much fade behind the current shape")
-                .validator(|val| check_limits(&val, 1, 10)),
+                .validator(|val| check_limits(&val, 1, 20)),
         )
         .arg(
             Arg::with_name("cell edge legth")
