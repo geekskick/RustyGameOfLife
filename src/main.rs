@@ -163,7 +163,7 @@ fn main() {
     clog.nice_to_know(&format!("Settings\t{}", &settings));
 
     let sdl_context = sdl2::init().expect("Unable to initialise SDL2");
-    clog.nice_to_know(&format!("Initialised SDL2"));
+    clog.nice_to_know("Initialised SDL2");
     clog.nice_to_know(&format!("SDL2 Version = {}", sdl2::version::version()));
 
     let vss = sdl_context
