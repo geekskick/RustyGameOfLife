@@ -1,3 +1,7 @@
+use rand::{
+    distributions::{Distribution, Standard},
+    Rng,
+};
 #[derive(PartialEq, Debug, Clone)]
 pub enum CellState {
     Alive,
@@ -22,13 +26,23 @@ impl std::fmt::Display for CellState {
 
 #[derive(Debug, Clone)]
 pub struct CellLocation {
-    pub r: isize,
-    pub c: isize,
+    pub r: i32,
+    pub c: i32,
 }
 
 impl Default for CellLocation {
     fn default() -> Self {
         CellLocation { r: 0, c: 0 }
+    }
+}
+
+impl Distribution<CellState> for Standard {
+    fn sample<R: Rng + ?Sized>(&self, rng: &mut R) -> CellState {
+        match rng.gen_range(0, 2) {
+            0 => CellState::Alive,
+            1 => CellState::Dead,
+            _ => panic!("WTF random number"),
+        }
     }
 }
 
